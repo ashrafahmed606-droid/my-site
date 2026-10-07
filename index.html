@@ -1,2778 +1,707 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bunny Web | دليلي في مرحلة المراهقة</title>
+  <title>Bunny Bloom | دليلي في مرحلة المراهقة</title>
 
-<style>
-
-/* =========================
-   التصميم الأساسي
-========================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Tahoma", "Arial", sans-serif;
-    background: #fff8fc;
-    color: #493847;
-    line-height: 1.8;
-}
-
-/* =========================
-   الهيدر
-========================= */
-
-.hero {
-    min-height: 430px;
-    padding: 45px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    background:
-        radial-gradient(circle at 20% 20%, #ffffff 0 5%, transparent 6%),
-        radial-gradient(circle at 80% 30%, #ffffff 0 4%, transparent 5%),
-        linear-gradient(135deg, #ffdce9, #eee0ff);
-
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: rgba(255,255,255,0.25);
-    border-radius: 50%;
-    top: -100px;
-    right: -80px;
-}
-
-.hero-content {
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
-}
-
-.logo {
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%,100% {
-        transform: translateY(0);
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Tahoma", "Arial", sans-serif;
     }
 
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.hero h1 {
-    color: #7c4c70;
-    font-size: 38px;
-    margin-top: 10px;
-}
-
-.hero h2 {
-    color: #a35d87;
-    margin: 8px 0;
-    font-size: 22px;
-}
-
-.hero p {
-    color: #654d60;
-    font-size: 17px;
-}
-
-.student {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 8px 20px;
-    background: rgba(255,255,255,0.75);
-    border-radius: 30px;
-    color: #754e69;
-    font-weight: bold;
-}
-
-/* =========================
-   شريط التنقل
-========================= */
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 3px 15px rgba(120,80,110,0.10);
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 12px;
-}
-
-nav button {
-    border: none;
-    background: #fff0f6;
-    color: #774d69;
-    padding: 9px 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav button:hover {
-    background: #efc7dc;
-    transform: translateY(-2px);
-}
-
-/* =========================
-   الصفحات
-========================= */
-
-.page {
-    display: none;
-    max-width: 1050px;
-    margin: auto;
-    padding: 45px 20px;
-    animation: pageIn 0.5s ease;
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes pageIn {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
+    body {
+      background: linear-gradient(135deg, #fff5fb, #f7f0ff);
+      color: #4d3b4d;
+      min-height: 100vh;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.section-title {
-    text-align: center;
-    color: #784e70;
-    font-size: 30px;
-    margin-bottom: 12px;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #806879;
-    margin-bottom: 30px;
-}
-
-/* =========================
-   البطاقات
-========================= */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 24px;
-    padding: 25px;
-    box-shadow: 0 7px 25px rgba(120,80,110,0.09);
-    border: 1px solid #f5dce8;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(120,80,110,0.14);
-}
-
-.card h3 {
-    color: #a0527e;
-    margin-bottom: 10px;
-    font-size: 21px;
-}
-
-.card p {
-    color: #665563;
-}
-
-/* =========================
-   بطاقة البداية
-========================= */
-
-.welcome {
-    background: linear-gradient(135deg, #fff, #fff0f7);
-    border-radius: 30px;
-    padding: 35px;
-    text-align: center;
-    box-shadow: 0 8px 30px rgba(120,80,110,0.08);
-    margin-bottom: 25px;
-}
-
-.welcome h2 {
-    color: #814f72;
-    margin-bottom: 12px;
-}
-
-.quote {
-    margin-top: 18px;
-    background: #f7edff;
-    padding: 16px;
-    border-radius: 18px;
-    color: #765c7a;
-    font-weight: bold;
-}
-
-/* =========================
-   الاختبار
-========================= */
-
-.question {
-    background: white;
-    padding: 23px;
-    border-radius: 22px;
-    margin-bottom: 18px;
-    border: 1px solid #f1dce7;
-    box-shadow: 0 5px 18px rgba(120,80,110,0.06);
-}
-
-.question h3 {
-    color: #704c68;
-    margin-bottom: 14px;
-}
-
-.option {
-    display: block;
-    background: #fff8fb;
-    padding: 10px 13px;
-    margin: 8px 0;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.option:hover {
-    background: #f9e4ef;
-}
-
-.option input {
-    margin-left: 8px;
-}
-
-.main-button {
-    display: block;
-    margin: 30px auto;
-    padding: 13px 30px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #d783aa, #a979b7);
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 7px 20px rgba(150,100,140,0.22);
-    transition: 0.3s;
-}
-
-.main-button:hover {
-    transform: translateY(-3px);
-}
-
-/* =========================
-   النتيجة
-========================= */
-
-#result {
-    display: none;
-    background: linear-gradient(135deg, #fff0f7, #f5edff);
-    border-radius: 25px;
-    padding: 28px;
-    text-align: center;
-    margin-top: 25px;
-    border: 1px solid #ead1e1;
-}
-
-#result h2 {
-    color: #8b5078;
-    margin-bottom: 10px;
-}
-
-/* =========================
-   صندوق النصيحة
-========================= */
-
-.tip-box {
-    margin-top: 25px;
-    background: #fff5d9;
-    border-radius: 20px;
-    padding: 20px;
-    border-right: 5px solid #e5b75c;
-}
-
-.tip-box h3 {
-    color: #8a6732;
-    margin-bottom: 5px;
-}
-
-/* =========================
-   التحديات
-========================= */
-
-.challenge {
-    background: #f1eaff;
-    border-radius: 22px;
-    padding: 22px;
-    margin-top: 25px;
-}
-
-.challenge h3 {
-    color: #73548b;
-}
-
-/* =========================
-   الفوتر
-========================= */
-
-footer {
-    text-align: center;
-    background: #f4dce8;
-    padding: 25px;
-    color: #694f61;
-    margin-top: 20px;
-}
-
-footer strong {
-    color: #8a4f73;
-}
-
-/* =========================
-   الجوال
-========================= */
-
-@media (max-width: 700px) {
-
-    .hero h1 {
-        font-size: 28px;
+    header {
+      background: linear-gradient(135deg, #f7b6d9, #d9b8f5);
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(150, 100, 150, 0.15);
     }
 
-    .hero h2 {
-        font-size: 18px;
+    .bunny {
+      font-size: 55px;
+      margin-bottom: 5px;
     }
 
-    .cards {
-        grid-template-columns: 1fr;
+    header h1 {
+      color: white;
+      font-size: 34px;
+      text-shadow: 2px 2px 5px rgba(120, 70, 120, 0.2);
+    }
+
+    header p {
+      color: white;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px;
+      background: white;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
     }
 
     nav button {
-        font-size: 12px;
-        padding: 8px 11px;
+      border: none;
+      background: #fff0f8;
+      color: #80506f;
+      padding: 11px 17px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      background: #e7c5f5;
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 30px 18px;
     }
 
     .page {
-        padding: 30px 14px;
+      display: none;
+      animation: fade 0.4s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      background: white;
+      border-radius: 30px;
+      padding: 40px 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(130, 80, 130, 0.1);
+      margin-bottom: 25px;
+    }
+
+    .hero h2 {
+      color: #b45c91;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      line-height: 2;
+      max-width: 750px;
+      margin: auto;
+      color: #6c596b;
     }
 
     .section-title {
-        font-size: 25px;
+      text-align: center;
+      color: #9a5b88;
+      margin: 25px 0;
+      font-size: 25px;
     }
-}
 
-</style>
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      padding: 25px;
+      box-shadow: 0 7px 20px rgba(130, 80, 130, 0.09);
+      border: 1px solid #f3dcec;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(130, 80, 130, 0.14);
+    }
+
+    .card .icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: #9d5b87;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      line-height: 1.9;
+      color: #655665;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, #fff0f8, #f4eaff);
+      border-right: 5px solid #d69ac0;
+      padding: 20px;
+      border-radius: 18px;
+      margin: 20px 0;
+      line-height: 2;
+    }
+
+    .tips {
+      margin-top: 15px;
+    }
+
+    .tips li {
+      margin: 10px 0;
+      line-height: 1.8;
+      list-style: none;
+      background: #fff8fc;
+      padding: 12px 15px;
+      border-radius: 14px;
+    }
+
+    .tips li::before {
+      content: "🌷 ";
+    }
+
+    .daily-box {
+      background: white;
+      border-radius: 25px;
+      padding: 25px;
+      margin-top: 25px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(130, 80, 130, 0.08);
+    }
+
+    .daily-box button {
+      margin-top: 15px;
+      border: none;
+      background: #c786ad;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    #tip {
+      margin-top: 18px;
+      color: #8a5577;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+    .routine {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .routine div {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #f0dbea;
+    }
+
+    .routine strong {
+      display: block;
+      color: #a75c8b;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      margin-top: 35px;
+      background: #efd8e9;
+      text-align: center;
+      padding: 20px;
+      color: #704f68;
+      line-height: 1.8;
+    }
+
+    footer strong {
+      color: #9d5784;
+    }
+
+    @media (max-width: 700px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .routine {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      nav button {
+        font-size: 13px;
+        padding: 9px 13px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<!-- =========================
-     الصفحة الرئيسية
-========================= -->
-
-<header class="hero">
-
-<div class="hero-content">
-
-<!-- Bunny SVG -->
-<svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-
-<!-- الأذنان -->
-<ellipse cx="72" cy="45" rx="25" ry="55" fill="#ffffff" stroke="#d78bad" stroke-width="4"/>
-<ellipse cx="128" cy="45" rx="25" ry="55" fill="#ffffff" stroke="#d78bad" stroke-width="4"/>
-
-<ellipse cx="72" cy="45" rx="13" ry="38" fill="#f4bfd4"/>
-<ellipse cx="128" cy="45" rx="13" ry="38" fill="#f4bfd4"/>
-
-<!-- الرأس -->
-<circle cx="100" cy="110" r="62" fill="#ffffff" stroke="#d78bad" stroke-width="4"/>
-
-<!-- العيون -->
-<circle cx="78" cy="105" r="8" fill="#493847"/>
-<circle cx="122" cy="105" r="8" fill="#493847"/>
-
-<circle cx="80" cy="102" r="2.5" fill="white"/>
-<circle cx="124" cy="102" r="2.5" fill="white"/>
-
-<!-- الخدود -->
-<ellipse cx="62" cy="122" rx="12" ry="6" fill="#f3b4cc"/>
-<ellipse cx="138" cy="122" rx="12" ry="6" fill="#f3b4cc"/>
-
-<!-- الأنف -->
-<path d="M94 120 Q100 115 106 120 Q100 127 94 120" fill="#d77b9e"/>
-
-<!-- الفم -->
-<path d="M100 126 Q94 135 88 130" fill="none" stroke="#70485f" stroke-width="3"/>
-<path d="M100 126 Q106 135 112 130" fill="none" stroke="#70485f" stroke-width="3"/>
-
-<!-- فيونكة -->
-<path d="M137 72 Q165 55 163 82 Q160 102 137 88" fill="#e990b2"/>
-<path d="M137 72 Q110 55 112 82 Q115 102 137 88" fill="#e990b2"/>
-<circle cx="137" cy="80" r="9" fill="#d86f99"/>
-
-</svg>
-
-<h1>🐰 Bunny Web</h1>
-
-<h2>دليلي في مرحلة المراهقة 🌷</h2>
-
-<p>
-مساحة لطيفة تساعد الفتاة على فهم هذه المرحلة
-والاهتمام بنفسها ودينها ودراستها وحياتها.
-</p>
-
-<div class="student">
-لَدُن أشرف • أول ثانوي 2
-</div>
-
-</div>
-
-</header>
-
-
-<!-- =========================
-     القائمة
-========================= -->
-
-<nav>
-
-<button onclick="showPage('home')">🏠 الرئيسية</button>
-
-<button onclick="showPage('quiz')">📝 اختبار التوازن</button>
-
-<button onclick="showPage('hygiene')">🧼 العناية والنظافة</button>
-
-<button onclick="showPage('faith')">🕌 علاقتي بربي</button>
-
-<button onclick="showPage('study')">📚 دراستي</button>
-
-<button onclick="showPage('mind')">🧠 نفسي ومشاعري</button>
-
-</nav>
-
-
-<!-- =========================
-     الرئيسية
-========================= -->
-
-<section id="home" class="page active">
-
-<div class="welcome">
-
-<h2>🌷 أهلاً بكِ في مرحلة جديدة منكِ</h2>
-
-<p>
-مرحلة المراهقة فترة طبيعية مليئة بالتغيرات والتجارب.
-والاهتمام بنفسك لا يعني أن تكوني مثالية،
-بل أن تتعلمي كيف توازنين بين صحتك ونفسك ودينك ودراستك وحياتك.
-</p>
-
-<div class="quote">
-"خطوة صغيرة كل يوم قد تصنع فرقًا كبيرًا في مستقبلكِ." ✨
-</div>
-
-</div>
-
-
-<div class="cards">
-
-<div class="card">
-
-<h3>🧼 عنايتي بنفسي</h3>
-
-<p>
-النظافة الشخصية والعادات اليومية البسيطة
-تساعدك على الشعور بالراحة والثقة والاهتمام بصحتك.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🕌 علاقتي بربي</h3>
-
-<p>
-العبادة والقرب من الله تمنح الإنسان الطمأنينة،
-وتساعده على التعامل مع الحياة بقلب أكثر ثباتًا.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📚 دراستي ومستقبلي</h3>
-
-<p>
-النجاح الدراسي يحتاج إلى تنظيم واهتمام واستمرارية،
-وليس إلى الكمال في كل يوم.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🧠 نفسي ومشاعري</h3>
-
-<p>
-من الطبيعي أن تتغير المشاعر خلال المراهقة.
-المهم أن تفهمي نفسك وتطلبي المساعدة عندما تحتاجينها.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="tip-box">
-
-<h3>💡 تذكري</h3>
-
-<p>
-أنتِ في مرحلة تعلّم ونمو، فلا تقارني نفسك بغيرك.
-كل شخص له وقته وطريقته الخاصة في التطور.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     الاختبار
-========================= -->
-
-<section id="quiz" class="page">
-
-<h2 class="section-title">📝 اختبار توازني في المراهقة</h2>
-
-<p class="section-subtitle">
-أجيبي بصدق، فالهدف ليس الحصول على درجة مثالية،
-بل معرفة الجوانب التي يمكنك تطويرها 🌷
-</p>
-
-
-<form id="quizForm">
-
-
-<div class="question">
-
-<h3>1. عندما أستيقظ وأبدأ يومي، أهتم بنظافتي الشخصية:</h3>
-
-<label class="option">
-<input type="radio" name="q1" value="1">
-دائمًا تقريبًا
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="0">
-نادراً
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>2. أحاول المحافظة على صلاتي وعبادتي:</h3>
-
-<label class="option">
-<input type="radio" name="q2" value="1">
-نعم، وأحاول الاستمرار
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="0">
-أحتاج إلى تحسين ذلك
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>3. عندما يكون لدي اختبار، أبدأ المذاكرة قبل موعده:</h3>
-
-<label class="option">
-<input type="radio" name="q3" value="1">
-غالبًا
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="0">
-غالبًا أؤجل
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>4. أحاول الحصول على نوم كافٍ ومنتظم:</h3>
-
-<label class="option">
-<input type="radio" name="q4" value="1">
-نعم
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="0">
-ليس دائمًا
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>5. إذا شعرت بالضغط أو الحزن، أتحدث مع شخص أثق به:</h3>
-
-<label class="option">
-<input type="radio" name="q5" value="1">
-نعم
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="0">
-أفضل الاحتفاظ بكل شيء لنفسي
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>6. أهتم بأسناني وشعري وملابسي ونظافتي اليومية:</h3>
-
-<label class="option">
-<input type="radio" name="q6" value="1">
-نعم
-</label>
-
-<label class="option">
-<input type="radio" name="q6" value="0">
-أحيانًا أنسى
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>7. عندما أخطئ في شيء، أتعلم منه بدل أن أكره نفسي:</h3>
-
-<label class="option">
-<input type="radio" name="q7" value="1">
-أحاول ذلك
-</label>
-
-<label class="option">
-<input type="radio" name="q7" value="0">
-ألوم نفسي كثيرًا
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>8. أوازن بين الدراسة والراحة والوقت الشخصي:</h3>
-
-<label class="option">
-<input type="radio" name="q8" value="1">
-غالبًا
-</label>
-
-<label class="option">
-<input type="radio" name="q8" value="0">
-أجد صعوبة في ذلك
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>9. إذا احتجت نصيحة في أمر يخصني، أطلبها من شخص بالغ موثوق:</h3>
-
-<label class="option">
-<input type="radio" name="q9" value="1">
-نعم
-</label>
-
-<label class="option">
-<input type="radio" name="q9" value="0">
-لا
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>10. أحاول كل يوم أن أطور جانبًا واحدًا من حياتي:</h3>
-
-<label class="option">
-<input type="radio" name="q10" value="1">
-نعم
-</label>
-
-<label class="option">
-<input type="radio" name="q10" value="0">
-لم أفكر في ذلك من قبل
-</label>
-
-</div>
-
-
-<button type="button" class="main-button" onclick="calculateScore()">
-✨ اكتشفي نتيجتك
-</button>
-
-</form>
-
-
-<div id="result"></div>
-
-</section>
-
-
-<!-- =========================
-     النظافة والعناية
-========================= -->
-
-<section id="hygiene" class="page">
-
-<h2 class="section-title">🧼 النظافة والعناية الشخصية</h2>
-
-<p class="section-subtitle">
-العناية بالنفس ليست رفاهية، بل عادة جميلة تساعدك على الشعور بالراحة والثقة.
-</p>
-
-
-<div class="cards">
-
-<div class="card">
-
-<h3>🚿 النظافة اليومية</h3>
-
-<p>
-الاهتمام بالنظافة والاستحمام وتغيير الملابس الداخلية
-والملابس النظيفة يساعد على المحافظة على النظافة والراحة.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🦷 الأسنان</h3>
-
-<p>
-تنظيف الأسنان بانتظام والعناية بالفم من العادات المهمة
-للحفاظ على صحة الفم والنفس المنعش.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🧴 العناية بالبشرة</h3>
-
-<p>
-يكفي روتين بسيط يناسب نوع بشرتك، مع تجنب تجربة
-الكثير من المنتجات في الوقت نفسه.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🧴 الشعر</h3>
-
-<p>
-اختاري روتينًا بسيطًا يناسب شعرك،
-واهتمي بالنظافة والتعامل اللطيف معه.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="challenge">
-
-<h3>🌸 تحدي اليوم</h3>
-
-<p>
-اختاري ثلاث عادات بسيطة للعناية بنفسك وحاولي المحافظة عليها اليوم.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     علاقتي بربي
-========================= -->
-
-<section id="faith" class="page">
-
-<h2 class="section-title">🕌 علاقتي بربي</h2>
-
-<p class="section-subtitle">
-الإيمان والعبادة جزء مهم من حياة المسلم، والتقرب إلى الله يكون بخطوات مستمرة.
-</p>
-
-
-<div class="cards">
-
-<div class="card">
-
-<h3>🤍 الصلاة</h3>
-
-<p>
-المحافظة على الصلاة والحرص على أدائها في وقتها
-من أهم العبادات التي تساعد المسلم على تنظيم يومه وتقوية صلته بالله.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📖 القرآن</h3>
-
-<p>
-يمكن تخصيص وقت بسيط يوميًا لقراءة القرآن أو تدبر آية،
-حتى لو كان الوقت قصيرًا.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🤲 الدعاء</h3>
-
-<p>
-يمكنك دعاء الله بما تحتاجينه من خير،
-والاستعانة به في دراستك وحياتك وأمورك اليومية.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌷 بر الوالدين</h3>
-
-<p>
-الكلمة الطيبة والمساعدة والاحترام من صور جميلة
-من صور بر الوالدين.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="tip-box">
-
-<h3>✨ تذكري</h3>
-
-<p>
-القرب من الله ليس مسابقة مع الآخرين؛
-هو علاقة تحتاج إلى صدق واستمرار ومحاولة.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     الدراسة
-========================= -->
-
-<section id="study" class="page">
-
-<h2 class="section-title">📚 دراستي ودرجاتي</h2>
-
-<p class="section-subtitle">
-درجاتك مهمة، لكن النجاح الحقيقي يحتاج أيضًا إلى تنظيم وصبر وتوازن.
-</p>
-
-
-<div class="cards">
-
-<div class="card">
-
-<h3>📝 خططي قبل المذاكرة</h3>
-
-<p>
-حددي المادة والموضوع والوقت الذي ستدرسين فيه،
-بدل أن تبدئي وأنتِ لا تعرفين من أين تبدأين.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>⏰ قسمي وقتك</h3>
-
-<p>
-قسمي وقتك بين الدراسة والراحة والنوم والعبادة
-والأنشطة التي تحبينها.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📵 أبعدي المشتتات</h3>
-
-<p>
-ضعي الهاتف بعيدًا أثناء المذاكرة عندما تحتاجين إلى تركيز،
-ثم خذي استراحة قصيرة.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌟 لا تخافي من الخطأ</h3>
-
-<p>
-الخطأ في سؤال أو اختبار لا يعني أنك غير قادرة.
-استخدمي الخطأ لمعرفة الشيء الذي تحتاجين إلى مراجعته.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="challenge">
-
-<h3>🎯 تحدي الدراسة</h3>
-
-<p>
-اختاري مادة واحدة اليوم، وحددي لها هدفًا صغيرًا وواضحًا.
-مثال: "سأحل 10 مسائل" بدل "سأذاكر الرياضيات".
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     النفس والمشاعر
-========================= -->
-
-<section id="mind" class="page">
-
-<h2 class="section-title">🧠 نفسي ومشاعري</h2>
-
-<p class="section-subtitle">
-التغيرات والمشاعر المختلفة قد تكون جزءًا طبيعيًا من مرحلة المراهقة.
-</p>
-
-
-<div class="cards">
-
-<div class="card">
-
-<h3>🌷 افهمي مشاعرك</h3>
-
-<p>
-الحزن أو القلق أو الغضب قد يحدث أحيانًا.
-حاولي معرفة السبب والتعبير عن مشاعرك بطريقة آمنة.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🤍 لا تقارني نفسك</h3>
-
-<p>
-كل إنسانة لها شخصيتها وقدراتها وطريقها.
-المقارنة المستمرة قد تجعلك تنسين الأشياء الجميلة في نفسك.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>👩🏻‍👧 اطلبي المساعدة</h3>
-
-<p>
-إذا كان هناك شيء يزعجك أو يقلقك، تحدثي مع والدتك
-أو والدك أو شخص بالغ موثوق تثقين به.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌱 طوري نفسك بهدوء</h3>
-
-<p>
-اختاري عادة واحدة واعملي عليها تدريجيًا.
-لا تحتاجين إلى تغيير كل شيء في يوم واحد.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="tip-box">
-
-<h3>💗 رسالة لكِ</h3>
-
-<p>
-ليس مطلوبًا منك أن تكوني مثالية.
-المهم أن تتعلمي، وتحاولي، وتكبري بطريقة صحية ومتوازنة.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     الفوتر
-========================= -->
-
-<footer>
-
-<p>
-🐰 <strong>Bunny Web</strong> | دليلي في مرحلة المراهقة
-</p>
-
-<p>
-إعداد الطالبة: لَدُن أشرف • أول ثانوي 2
-</p>
-
-<p>
-🌷 مشروع تقني تفاعلي
-</p>
-
-</footer>
-
-
-<script>
-
-/* =========================
-   الانتقال بين الصفحات
-========================= */
-
-function showPage(pageId) {
-
-    const pages = document.querySelectorAll(".page");
-
-    pages.forEach(function(page) {
+  <!-- HEADER -->
+  <header>
+    <div class="bunny">🐰🌷</div>
+    <h1>Bunny Bloom</h1>
+    <p>دليلي في مرحلة المراهقة 💗</p>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <button onclick="showPage('home')">🏠 الرئيسية</button>
+    <button onclick="showPage('hygiene')">🧼 العناية والنظافة</button>
+    <button onclick="showPage('faith')">🕌 علاقتي بربي</button>
+    <button onclick="showPage('study')">📚 دراستي</button>
+    <button onclick="showPage('mind')">🧠 نفسي ومشاعري</button>
+    <button onclick="showPage('routine')">🌸 روتيني</button>
+  </nav>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+
+      <div class="hero">
+        <h2>أهلًا بكِ في Bunny Bloom 🐰🌷</h2>
+
+        <p>
+          مرحلة المراهقة ليست مجرد مرحلة عمرية، بل فترة نكتشف فيها أنفسنا
+          ونطوّر عاداتنا ونبني شخصيتنا خطوة بخطوة.
+          صممت هذا الموقع ليكون دليلًا بسيطًا ولطيفًا يساعد الفتاة
+          على الاهتمام بنفسها ودراستها ومشاعرها وعلاقتها بربها.
+        </p>
+      </div>
+
+      <h2 class="section-title">ماذا ستجدين هنا؟ ✨</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🧼</div>
+          <h3>العناية والنظافة</h3>
+          <p>
+            نصائح بسيطة تساعدكِ على الاهتمام بالنظافة الشخصية
+            والعناية اليومية بنفسك.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🕌</div>
+          <h3>علاقتي بربي</h3>
+          <p>
+            أفكار تساعدكِ على المحافظة على العبادات
+            وتقوية علاقتكِ بالله بطريقة بسيطة.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>دراستي</h3>
+          <p>
+            طرق لتنظيم الوقت والمذاكرة والتعامل مع ضغط الدراسة
+            بطريقة أفضل.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>نفسي ومشاعري</h3>
+          <p>
+            فهم المشاعر والتعامل معها والتعبير عنها بطريقة صحية
+            وطلب المساعدة عند الحاجة.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="daily-box">
+        <h3>🌷 رسالة اليوم</h3>
+        <p id="tip">
+          أنتِ لا تحتاجين أن تكوني مثالية، يكفي أن تتقدمي خطوة كل يوم.
+        </p>
+
+        <button onclick="newTip()">رسالة أخرى ✨</button>
+      </div>
+
+    </section>
+
+
+    <!-- HYGIENE -->
+    <section id="hygiene" class="page">
+
+      <div class="hero">
+        <h2>🧼 العناية والنظافة</h2>
+        <p>
+          العناية بالنفس ليست رفاهية، بل عادة تساعدنا على الشعور
+          بالراحة والثقة والاهتمام بصحتنا.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🧴</div>
+          <h3>النظافة اليومية</h3>
+
+          <ul class="tips">
+            <li>الاستحمام والمحافظة على نظافة الجسم.</li>
+            <li>غسل اليدين بانتظام.</li>
+            <li>العناية بالأسنان مرتين يوميًا.</li>
+            <li>ارتداء ملابس نظيفة ومريحة.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="icon">🪥</div>
+          <h3>العناية بالفم</h3>
+
+          <ul class="tips">
+            <li>تنظيف الأسنان بالفرشاة والمعجون.</li>
+            <li>الاهتمام بتنظيف اللسان.</li>
+            <li>زيارة طبيب الأسنان عند وجود مشكلة.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="info-box">
+        💡 <strong>تذكري:</strong>
+        الاهتمام بالنظافة لا يعني المبالغة، بل المحافظة على عادات بسيطة
+        ومستقرة كل يوم.
+      </div>
+
+    </section>
+
+
+    <!-- FAITH -->
+    <section id="faith" class="page">
+
+      <div class="hero">
+        <h2>🕌 علاقتي بربي</h2>
+
+        <p>
+          في مرحلة المراهقة تتغير أشياء كثيرة في حياتنا،
+          ومن الجميل أن تكون علاقتنا بالله مصدرًا للطمأنينة والثبات.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🕊️</div>
+          <h3>الصلاة</h3>
+          <p>
+            المحافظة على الصلاة وتنظيم اليوم حولها يساعد على بناء
+            روتين متوازن ويمنح الإنسان وقتًا للهدوء والتأمل.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📖</div>
+          <h3>القرآن</h3>
+          <p>
+            تخصيص وقت ولو قصيرًا لقراءة القرآن والتدبر فيه
+            يمكن أن يكون عادة جميلة في اليوم.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🤲</div>
+          <h3>الدعاء</h3>
+          <p>
+            يمكنكِ الدعاء لله بما تحتاجينه وما تتمنينه،
+            فالدعاء مساحة للرجاء والطمأنينة.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💗</div>
+          <h3>النية الطيبة</h3>
+          <p>
+            الأعمال اليومية البسيطة يمكن أن تكون ذات قيمة عندما تكون
+            النية فيها صالحة.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="info-box">
+        🌷 <strong>فكرة صغيرة:</strong>
+        لا تنتظري أن يكون يومك مثاليًا حتى تقتربي من الله،
+        ابدئي بخطوة بسيطة واستمرّي عليها.
+      </div>
+
+    </section>
+
+
+    <!-- STUDY -->
+    <section id="study" class="page">
+
+      <div class="hero">
+        <h2>📚 دراستي</h2>
+
+        <p>
+          النجاح الدراسي لا يعتمد فقط على عدد ساعات المذاكرة،
+          بل على طريقة تنظيم الوقت وفهم الدروس والراحة بشكل متوازن.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">⏰</div>
+          <h3>تنظيم الوقت</h3>
+
+          <ul class="tips">
+            <li>حددي أهم المهام أولًا.</li>
+            <li>قسّمي المذاكرة إلى فترات قصيرة.</li>
+            <li>اتركي وقتًا للراحة.</li>
+            <li>لا تؤجلي كل شيء إلى آخر لحظة.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="icon">📝</div>
+          <h3>المذاكرة بذكاء</h3>
+
+          <ul class="tips">
+            <li>حاولي فهم الدرس قبل حفظه.</li>
+            <li>استخدمي الخرائط الذهنية والجداول.</li>
+            <li>اختبري نفسك بعد المذاكرة.</li>
+            <li>راجعي الأخطاء بدل تجاهلها.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="info-box">
+        ⭐ <strong>قاعدة مهمة:</strong>
+        إذا لم تفهمي شيئًا، السؤال وطلب المساعدة ليسا دليلًا على الضعف،
+        بل جزء من التعلم.
+      </div>
+
+    </section>
+
+
+    <!-- MIND -->
+    <section id="mind" class="page">
+
+      <div class="hero">
+        <h2>🧠 نفسي ومشاعري</h2>
+
+        <p>
+          من الطبيعي أن تتغير المشاعر خلال مرحلة المراهقة.
+          المهم أن نتعلم كيف نفهم مشاعرنا ونتعامل معها بطريقة آمنة وصحية.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🌧️</div>
+          <h3>عندما أشعر بالحزن</h3>
+          <p>
+            اسمحي لنفسك بالشعور، وتحدثي مع شخص تثقين به،
+            وحاولي القيام بشيء بسيط يساعدك على الاسترخاء.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">😤</div>
+          <h3>عندما أغضب</h3>
+          <p>
+            خذي لحظة قبل الرد، ابتعدي عن الموقف إن احتجتِ،
+            وحاولي التعبير عن سبب غضبك بهدوء.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">😰</div>
+          <h3>عندما أشعر بالضغط</h3>
+          <p>
+            رتبي ما عليكِ خطوة بخطوة، وخذي فترات راحة،
+            ولا تترددي في طلب المساعدة من شخص بالغ تثقين به.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🌷</div>
+          <h3>الثقة بالنفس</h3>
+          <p>
+            لا تقارني نفسك بالآخرين باستمرار.
+            لكل شخص نقاط قوة وأشياء يتعلمها مع الوقت.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="info-box">
+        💗 <strong>تذكري:</strong>
+        طلب المساعدة عندما تحتاجينها تصرف شجاع، ويمكنكِ التحدث
+        مع والديكِ أو معلمة تثقين بها أو شخص بالغ موثوق.
+      </div>
+
+    </section>
+
+
+    <!-- ROUTINE -->
+    <section id="routine" class="page">
+
+      <div class="hero">
+        <h2>🌸 روتيني المتوازن</h2>
+
+        <p>
+          التوازن لا يعني أن يكون كل يوم مثاليًا،
+          بل أن نعطي كل جانب من حياتنا حقه قدر الإمكان.
+        </p>
+      </div>
+
+      <div class="routine">
+
+        <div>
+          <div class="icon">🌅</div>
+          <strong>الصباح</strong>
+          الاستعداد لليوم، النظافة الشخصية، الفطور، وترتيب الأولويات.
+        </div>
+
+        <div>
+          <div class="icon">🏫</div>
+          <strong>الدراسة</strong>
+          التركيز في المدرسة وتسجيل الأشياء التي تحتاج إلى مراجعة.
+        </div>
+
+        <div>
+          <div class="icon">📚</div>
+          <strong>بعد المدرسة</strong>
+          الراحة قليلًا ثم إنجاز الواجبات والمذاكرة.
+        </div>
+
+        <div>
+          <div class="icon">🕌</div>
+          <strong>العبادة</strong>
+          المحافظة على الصلاة ووقت للقرآن والدعاء.
+        </div>
+
+        <div>
+          <div class="icon">💗</div>
+          <strong>نفسي</strong>
+          وقت للهوايات والعائلة والراحة والتعبير عن المشاعر.
+        </div>
+
+        <div>
+          <div class="icon">🌙</div>
+          <strong>المساء</strong>
+          تجهيز أغراض الغد والابتعاد عن السهر قدر الإمكان.
+        </div>
+
+      </div>
+
+      <div class="daily-box">
+        <h3>🐰 تذكير Bunny Bloom</h3>
+
+        <p id="tip">
+          خطوة صغيرة كل يوم تصنع فرقًا كبيرًا مع الوقت.
+        </p>
+
+        <button onclick="newTip()">أعطني تذكيرًا 💕</button>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>🐰 Bunny Bloom</strong>
+    <br>
+    دليلي في مرحلة المراهقة 🌷
+    <br>
+    تصميم الطالبة: <strong>لَدُن أشرف</strong>
+    <br>
+    أول ثانوي 2
+  </footer>
+
+
+  <script>
+
+    function showPage(pageId) {
+
+      const pages = document.querySelectorAll(".page");
+
+      pages.forEach(function(page) {
         page.classList.remove("active");
-    });
+      });
 
-    document.getElementById(pageId).classList.add("active");
+      document.getElementById(pageId).classList.add("active");
 
-    window.scrollTo({
+      window.scrollTo({
         top: 0,
         behavior: "smooth"
-    });
-}
-
-
-/* =========================
-   حساب نتيجة الاختبار
-========================= */
-
-function calculateScore() {
-
-function calculateScore() {
-
-    let score = 0;
-    let answered = 0;
-
-    for (let i = 1; i <= 10; i++) {
-
-        const answer = document.querySelector(
-            'input[name="q' + i + '"]:checked'
-        );
-
-        if (answer) {
-            answered++;
-            score += Number(answer.value);
-        }
+      });
     }
 
-    const result = document.getElementById("result");
 
-    result.style.display = "block";
+    const tips = [
+      "أنتِ لا تحتاجين أن تكوني مثالية، يكفي أن تتقدمي خطوة كل يوم. 🌷",
 
-    if (answered < 10) {
+      "اهتمي بنفسك كما تهتمين بمن تحبين. أنتِ تستحقين العناية أيضًا. 💗",
 
-        result.innerHTML =
-            "<h2>🌷 باقي شوي!</h2>" +
-            "<p>جاوبي على جميع الأسئلة أولًا.</p>" +
-            "<p>بقي لكِ " + (10 - answered) + " أسئلة.</p>";
+      "إذا أخطأتِ في شيء، لا تجعلي الخطأ يحدد قيمتك. تعلّمي منه وابدئي من جديد. 🐰",
 
-        result.scrollIntoView({
-            behavior: "smooth"
-        });
+      "طلب المساعدة عندما تحتاجينها ليس ضعفًا، بل تصرف ناضج وشجاع. 🌸",
 
-        return;
-    }
+      "الموازنة بين الدراسة والراحة والعبادة والعائلة تساعدك على الاستمرار. ✨",
 
-    let title;
-    let message;
+      "لا تقارني بدايتك بمنتصف رحلة شخص آخر. لكل شخص طريقه الخاص. 🌷",
 
-    if (score >= 9) {
+      "اهتمي بعاداتك الصغيرة؛ لأنها مع الوقت تصبح جزءًا من شخصيتك. 💕",
 
-        title = "🏆 توازن رائع!";
+      "كوني لطيفة مع نفسك أثناء التعلم والنمو. أنتِ ما زلتِ تكتشفين نفسك. 🦋"
+    ];
 
-        message =
-            "ممتاز جدًا! لديكِ عادات جميلة في العناية بنفسك ودينك ودراستك وحياتك.";
 
-    } else if (score >= 7) {
+    function newTip() {
 
-        title = "🌸 توازن جيد جدًا!";
+      const randomIndex = Math.floor(Math.random() * tips.length);
 
-        message =
-            "رائع! لديكِ أساس قوي، ومع بعض التطوير ستصبح عاداتك أكثر توازنًا.";
-
-    } else if (score >= 5) {
-
-        title = "💗 لديكِ بداية جميلة!";
-
-        message =
-            "لديكِ بعض العادات الجيدة، وهناك جوانب بسيطة يمكنك تطويرها خطوة بخطوة.";
-
-    } else {
-
-        title = "🌱 وقت جميل للبداية!";
-
-        message =
-            "لا بأس أبدًا. كل عادة جميلة تبدأ بخطوة صغيرة.";
+      document.getElementById("tip").textContent = tips[randomIndex];
 
     }
 
-    if (score >= 7) {
+  </script>
 
-        result.innerHTML =
-            "<h2>" + title + "</h2>" +
-            "<p><strong>نتيجتك: " + score + " / 10</strong></p>" +
-            "<p>" + message + "</p>" +
-            "<p>✨ تذكري: الهدف من الاختبار هو مساعدتك وليس الحكم عليكِ.</p>";
-
-    } else {
-
-        result.innerHTML =
-            "<h2>" + title + "</h2>" +
-
-            "<p><strong>نتيجتك: " +
-            score +
-            " / 10</strong></p>" +
-
-            "<p>" +
-            message +
-            "</p>" +
-
-            "<div class='tip-box'>" +
-
-            "<h3>💡 نصيحتك الخاصة</h3>" +
-
-            "<p>" +
-            "ابدئي بعادة واحدة فقط وركزي عليها يوميًا. " +
-            "لا تحاولي تغيير كل شيء مرة واحدة؛ " +
-            "الاستمرار أهم من المثالية. 🌷" +
-            "</p>" +
-
-            "</div>" +
-
-            "<div class='challenge'>" +
-
-            "<h3>🎯 3 أسئلة تدريبية</h3>" +
-
-            "<p><strong>1. إذا كان لديكِ اختبار بعد ثلاثة أيام، ماذا تفعلين؟</strong></p>" +
-
-            "<p>" +
-            "أ) أؤجل المذاكرة لليوم الأخير<br>" +
-            "ب) أضع خطة وأقسم المذاكرة على الأيام الثلاثة<br>" +
-            "ج) لا أذاكر" +
-            "</p>" +
-
-            "<p><strong>2. إذا شعرتِ بالضغط أو الحزن، ما التصرف الأفضل؟</strong></p>" +
-
-            "<p>" +
-            "أ) أحتفظ بكل شيء لنفسي<br>" +
-            "ب) أتحدث مع شخص بالغ موثوق<br>" +
-            "ج) أتجاهل مشاعري" +
-            "</p>" +
-
-            "<p><strong>3. ما الطريقة الأفضل لبناء عادة جديدة؟</strong></p>" +
-
-            "<p>" +
-            "أ) أغير كل عاداتي في يوم واحد<br>" +
-            "ب) أبدأ بعادة صغيرة وأستمر عليها<br>" +
-            "ج) أنتظر حتى أشعر بالحماس" +
-            "</p>" +
-
-            "</div>" +
-
-            "<p style='margin-top:20px; font-weight:bold; color:#8b5078;'>" +
-            "🌟 الإجابات الصحيحة: 1-ب &nbsp; 2-ب &nbsp; 3-ب" +
-            "</p>" +
-
-            "<p>" +
-            "💗 الدرجة ليست حكمًا عليكِ، بل فرصة لمعرفة ما يمكنك تطويره." +
-            "</p>";
-    }
-
-    result.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-}
-
-</script>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Bunny Web | دليلي في مرحلة المراهقة</title>
-
-<style>
-
-/* =========================
-   التصميم الأساسي
-========================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Tahoma", "Arial", sans-serif;
-    background: #fff8fc;
-    color: #493847;
-    line-height: 1.8;
-}
-
-
-/* =========================
-   الهيدر
-========================= */
-
-.hero {
-    min-height: 430px;
-    padding: 45px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(circle at 20% 20%, #ffffff 0 5%, transparent 6%),
-        radial-gradient(circle at 80% 30%, #ffffff 0 4%, transparent 5%),
-        linear-gradient(135deg, #ffdce9, #eee0ff);
-
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 250px;
-    height: 250px;
-
-    background: rgba(255,255,255,0.25);
-
-    border-radius: 50%;
-
-    top: -100px;
-    right: -80px;
-}
-
-.hero-content {
-    max-width: 800px;
-
-    position: relative;
-    z-index: 2;
-}
-
-.logo {
-    width: 150px;
-    height: 150px;
-
-    margin: auto;
-
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-}
-
-.hero h1 {
-    color: #7c4c70;
-    font-size: 38px;
-    margin-top: 10px;
-}
-
-.hero h2 {
-    color: #a35d87;
-    margin: 8px 0;
-    font-size: 22px;
-}
-
-.hero p {
-    color: #654d60;
-    font-size: 17px;
-}
-
-.student {
-    display: inline-block;
-
-    margin-top: 18px;
-
-    padding: 8px 20px;
-
-    background: rgba(255,255,255,0.75);
-
-    border-radius: 30px;
-
-    color: #754e69;
-
-    font-weight: bold;
-}
-
-
-/* =========================
-   شريط التنقل
-========================= */
-
-nav {
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
-
-    background: rgba(255,255,255,0.95);
-
-    box-shadow: 0 3px 15px rgba(120,80,110,0.10);
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    padding: 12px;
-}
-
-nav button {
-
-    border: none;
-
-    background: #fff0f6;
-
-    color: #774d69;
-
-    padding: 9px 15px;
-
-    border-radius: 25px;
-
-    cursor: pointer;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-nav button:hover {
-
-    background: #efc7dc;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================
-   الصفحات
-========================= */
-
-.page {
-
-    display: none;
-
-    max-width: 1050px;
-
-    margin: auto;
-
-    padding: 45px 20px;
-
-    animation: pageIn 0.5s ease;
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes pageIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-.section-title {
-
-    text-align: center;
-
-    color: #784e70;
-
-    font-size: 30px;
-
-    margin-bottom: 12px;
-}
-
-.section-subtitle {
-
-    text-align: center;
-
-    color: #806879;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================
-   البطاقات
-========================= */
-
-.cards {
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-.card {
-
-    background: white;
-
-    border-radius: 24px;
-
-    padding: 25px;
-
-    box-shadow: 0 7px 25px rgba(120,80,110,0.09);
-
-    border: 1px solid #f5dce8;
-
-    transition: 0.3s;
-}
-
-.card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 12px 30px rgba(120,80,110,0.14);
-}
-
-.card h3 {
-
-    color: #a0527e;
-
-    margin-bottom: 10px;
-
-    font-size: 21px;
-}
-
-.card p {
-    color: #665563;
-}
-
-
-/* =========================
-   بطاقة البداية
-========================= */
-
-.welcome {
-
-    background: linear-gradient(135deg, #fff, #fff0f7);
-
-    border-radius: 30px;
-
-    padding: 35px;
-
-    text-align: center;
-
-    box-shadow: 0 8px 30px rgba(120,80,110,0.08);
-
-    margin-bottom: 25px;
-}
-
-.welcome h2 {
-
-    color: #814f72;
-
-    margin-bottom: 12px;
-}
-
-.quote {
-
-    margin-top: 18px;
-
-    background: #f7edff;
-
-    padding: 16px;
-
-    border-radius: 18px;
-
-    color: #765c7a;
-
-    font-weight: bold;
-}
-
-
-/* =========================
-   الاختبار
-========================= */
-
-.question {
-
-    background: white;
-
-    padding: 23px;
-
-    border-radius: 22px;
-
-    margin-bottom: 18px;
-
-    border: 1px solid #f1dce7;
-
-    box-shadow: 0 5px 18px rgba(120,80,110,0.06);
-}
-
-.question h3 {
-
-    color: #704c68;
-
-    margin-bottom: 14px;
-}
-
-.option {
-
-    display: block;
-
-    background: #fff8fb;
-
-    padding: 10px 13px;
-
-    margin: 8px 0;
-
-    border-radius: 14px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.option:hover {
-    background: #f9e4ef;
-}
-
-.option input {
-    margin-left: 8px;
-}
-
-
-/* =========================
-   الأزرار
-========================= */
-
-.main-button {
-
-    display: block;
-
-    margin: 30px auto;
-
-    padding: 13px 30px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: linear-gradient(135deg, #d783aa, #a979b7);
-
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow: 0 7px 20px rgba(150,100,140,0.22);
-
-    transition: 0.3s;
-}
-
-.main-button:hover {
-
-    transform: translateY(-3px);
-}
-
-
-/* =========================
-   النتيجة
-========================= */
-
-#result {
-
-    display: none;
-
-    background: linear-gradient(135deg, #fff0f7, #f5edff);
-
-    border-radius: 25px;
-
-    padding: 28px;
-
-    text-align: center;
-
-    margin-top: 25px;
-
-    border: 1px solid #ead1e1;
-}
-
-#result h2 {
-
-    color: #8b5078;
-
-    margin-bottom: 10px;
-}
-
-
-/* =========================
-   صندوق النصيحة
-========================= */
-
-.tip-box {
-
-    margin-top: 25px;
-
-    background: #fff5d9;
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    border-right: 5px solid #e5b75c;
-
-    text-align: right;
-}
-
-.tip-box h3 {
-
-    color: #8a6732;
-
-    margin-bottom: 5px;
-}
-
-
-/* =========================
-   التدريب
-========================= */
-
-.challenge {
-
-    background: #f1eaff;
-
-    border-radius: 22px;
-
-    padding: 22px;
-
-    margin-top: 25px;
-
-    text-align: right;
-}
-
-.challenge h3 {
-
-    color: #73548b;
-
-    margin-bottom: 15px;
-}
-
-.training-question {
-
-    background: white;
-
-    border-radius: 16px;
-
-    padding: 15px;
-
-    margin: 12px 0;
-
-    border: 1px solid #eadff2;
-}
-
-
-/* =========================
-   الفوتر
-========================= */
-
-footer {
-
-    text-align: center;
-
-    background: #f4dce8;
-
-    padding: 25px;
-
-    color: #694f61;
-
-    margin-top: 20px;
-}
-
-footer strong {
-    color: #8a4f73;
-}
-
-
-/* =========================
-   الجوال
-========================= */
-
-@media (max-width: 700px) {
-
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .hero h2 {
-        font-size: 18px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    nav button {
-
-        font-size: 12px;
-
-        padding: 8px 11px;
-    }
-
-    .page {
-
-        padding: 30px 14px;
-    }
-
-    .section-title {
-
-        font-size: 25px;
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<!-- =========================
-     الصفحة الرئيسية
-========================= -->
-
-<header class="hero">
-
-<div class="hero-content">
-
-
-<!-- الأرنب -->
-
-<svg class="logo"
-     viewBox="0 0 200 200"
-     xmlns="http://www.w3.org/2000/svg">
-
-    <ellipse
-        cx="72"
-        cy="45"
-        rx="25"
-        ry="55"
-        fill="#ffffff"
-        stroke="#d78bad"
-        stroke-width="4"/>
-
-    <ellipse
-        cx="128"
-        cy="45"
-        rx="25"
-        ry="55"
-        fill="#ffffff"
-        stroke="#d78bad"
-        stroke-width="4"/>
-
-    <ellipse
-        cx="72"
-        cy="45"
-        rx="13"
-        ry="38"
-        fill="#f4bfd4"/>
-
-    <ellipse
-        cx="128"
-        cy="45"
-        rx="13"
-        ry="38"
-        fill="#f4bfd4"/>
-
-    <circle
-        cx="100"
-        cy="110"
-        r="62"
-        fill="#ffffff"
-        stroke="#d78bad"
-        stroke-width="4"/>
-
-    <circle
-        cx="78"
-        cy="105"
-        r="8"
-        fill="#493847"/>
-
-    <circle
-        cx="122"
-        cy="105"
-        r="8"
-        fill="#493847"/>
-
-    <circle
-        cx="80"
-        cy="102"
-        r="2.5"
-        fill="white"/>
-
-    <circle
-        cx="124"
-        cy="102"
-        r="2.5"
-        fill="white"/>
-
-    <ellipse
-        cx="62"
-        cy="122"
-        rx="12"
-        ry="6"
-        fill="#f3b4cc"/>
-
-    <ellipse
-        cx="138"
-        cy="122"
-        rx="12"
-        ry="6"
-        fill="#f3b4cc"/>
-
-    <path
-        d="M94 120 Q100 115 106 120 Q100 127 94 120"
-        fill="#d77b9e"/>
-
-    <path
-        d="M100 126 Q94 135 88 130"
-        fill="none"
-        stroke="#70485f"
-        stroke-width="3"/>
-
-    <path
-        d="M100 126 Q106 135 112 130"
-        fill="none"
-        stroke="#70485f"
-        stroke-width="3"/>
-
-    <path
-        d="M137 72 Q165 55 163 82 Q160 102 137 88"
-        fill="#e990b2"/>
-
-    <path
-        d="M137 72 Q110 55 112 82 Q115 102 137 88"
-        fill="#e990b2"/>
-
-    <circle
-        cx="137"
-        cy="80"
-        r="9"
-        fill="#d86f99"/>
-
-</svg>
-
-
-<h1>🐰 Bunny Web</h1>
-
-<h2>دليلي في مرحلة المراهقة 🌷</h2>
-
-<p>
-مساحة لطيفة تساعد الفتاة على فهم هذه المرحلة
-والاهتمام بنفسها ودينها ودراستها وحياتها.
-</p>
-
-<div class="student">
-لَدُن أشرف • أول ثانوي 2
-</div>
-
-</div>
-
-</header>
-
-
-
-<!-- =========================
-     القائمة
-========================= -->
-
-<nav>
-
-<button onclick="showPage('home')">
-🏠 الرئيسية
-</button>
-
-<button onclick="showPage('quiz')">
-📝 اختبار التوازن
-</button>
-
-<button onclick="showPage('hygiene')">
-🧼 العناية والنظافة
-</button>
-
-<button onclick="showPage('faith')">
-🕌 علاقتي بربي
-</button>
-
-<button onclick="showPage('study')">
-📚 دراستي
-</button>
-
-<button onclick="showPage('mind')">
-🧠 نفسي ومشاعري
-</button>
-
-</nav>
-
-
-
-<!-- =========================
-     الرئيسية
-========================= -->
-
-<section id="home" class="page active">
-
-<div class="welcome">
-
-<h2>
-🌷 أهلاً بكِ في مرحلة جديدة منكِ
-</h2>
-
-<p>
-مرحلة المراهقة فترة طبيعية مليئة بالتغيرات والتجارب.
-والاهتمام بنفسك لا يعني أن تكوني مثالية،
-بل أن تتعلمي كيف توازنين بين صحتك ونفسك ودينك
-ودراستك وحياتك.
-</p>
-
-<div class="quote">
-"خطوة صغيرة كل يوم قد تصنع فرقًا كبيرًا في مستقبلكِ." ✨
-</div>
-
-</div>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>
-🧼 عنايتي بنفسي
-</h3>
-
-<p>
-النظافة الشخصية والعادات اليومية البسيطة
-تساعدك على الشعور بالراحة والثقة والاهتمام بصحتك.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🕌 علاقتي بربي
-</h3>
-
-<p>
-العبادة والقرب من الله تمنح الإنسان الطمأنينة،
-وتساعده على التعامل مع الحياة بقلب أكثر ثباتًا.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-📚 دراستي ومستقبلي
-</h3>
-
-<p>
-النجاح الدراسي يحتاج إلى تنظيم واهتمام واستمرارية،
-وليس إلى الكمال في كل يوم.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🧠 نفسي ومشاعري
-</h3>
-
-<p>
-من الطبيعي أن تتغير المشاعر خلال المراهقة.
-المهم أن تفهمي نفسك وتطلبي المساعدة عندما تحتاجينها.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="tip-box">
-
-<h3>
-💡 تذكري
-</h3>
-
-<p>
-أنتِ في مرحلة تعلّم ونمو، فلا تقارني نفسك بغيرك.
-كل شخص له وقته وطريقته الخاصة في التطور.
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     الاختبار
-========================= -->
-
-<section id="quiz" class="page">
-
-<h2 class="section-title">
-📝 اختبار توازني في المراهقة
-</h2>
-
-<p class="section-subtitle">
-أجيبي بصدق، فالهدف ليس الحصول على درجة مثالية،
-بل معرفة الجوانب التي يمكنك تطويرها 🌷
-</p>
-
-
-<form id="quizForm">
-
-
-<div class="question">
-
-<h3>
-1. عندما أستيقظ وأبدأ يومي، أهتم بنظافتي الشخصية:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q1" value="1">
-
-دائمًا تقريبًا
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q1" value="0">
-
-نادراً
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-2. أحاول المحافظة على صلاتي وعبادتي:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q2" value="1">
-
-نعم، وأحاول الاستمرار
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q2" value="0">
-
-أحتاج إلى تحسين ذلك
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-3. عندما يكون لدي اختبار، أبدأ المذاكرة قبل موعده:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q3" value="1">
-
-غالبًا
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q3" value="0">
-
-غالبًا أؤجل
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-4. أحاول الحصول على نوم كافٍ ومنتظم:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q4" value="1">
-
-نعم
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q4" value="0">
-
-ليس دائمًا
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-5. إذا شعرت بالضغط أو الحزن، أتحدث مع شخص أثق به:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q5" value="1">
-
-نعم
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q5" value="0">
-
-أفضل الاحتفاظ بكل شيء لنفسي
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-6. أهتم بأسناني وشعري وملابسي ونظافتي اليومية:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q6" value="1">
-
-نعم
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q6" value="0">
-
-أحيانًا أنسى
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-7. عندما أخطئ في شيء، أتعلم منه بدل أن أكره نفسي:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q7" value="1">
-
-أحاول ذلك
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q7" value="0">
-
-ألوم نفسي كثيرًا
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-8. أوازن بين الدراسة والراحة والوقت الشخصي:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q8" value="1">
-
-غالبًا
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q8" value="0">
-
-أجد صعوبة في ذلك
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-9. إذا احتجت نصيحة في أمر يخصني، أطلبها من شخص بالغ موثوق:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q9" value="1">
-
-نعم
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q9" value="0">
-
-لا
-
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>
-10. أحاول كل يوم أن أطور جانبًا واحدًا من حياتي:
-</h3>
-
-<label class="option">
-
-<input type="radio" name="q10" value="1">
-
-نعم
-
-</label>
-
-<label class="option">
-
-<input type="radio" name="q10" value="0">
-
-لم أفكر في ذلك من قبل
-
-</label>
-
-</div>
-
-
-
-<button
-type="button"
-class="main-button"
-onclick="calculateScore()">
-
-✨ اكتشفي نتيجتك
-
-</button>
-
-</form>
-
-
-<div id="result"></div>
-
-</section>
-
-
-
-<!-- =========================
-     النظافة والعناية
-========================= -->
-
-<section id="hygiene" class="page">
-
-<h2 class="section-title">
-🧼 النظافة والعناية الشخصية
-</h2>
-
-<p class="section-subtitle">
-العناية بالنفس ليست رفاهية، بل عادة جميلة تساعدك على الشعور بالراحة والثقة.
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>🚿 النظافة اليومية</h3>
-
-<p>
-الاهتمام بالنظافة والاستحمام وتغيير الملابس
-والملابس النظيفة يساعد على المحافظة على النظافة والراحة.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🦷 الأسنان</h3>
-
-<p>
-تنظيف الأسنان بانتظام والعناية بالفم من العادات المهمة
-للحفاظ على صحة الفم والنفس المنعش.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🧴 العناية بالبشرة</h3>
-
-<p>
-يكفي روتين بسيط يناسب نوع بشرتك، مع تجنب تجربة
-الكثير من المنتجات في الوقت نفسه.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>💇🏻‍♀️ الشعر</h3>
-
-<p>
-اختاري روتينًا بسيطًا يناسب شعرك،
-واهتمي بالنظافة والتعامل اللطيف معه.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="challenge">
-
-<h3>🌸 تحدي اليوم</h3>
-
-<p>
-اختاري ثلاث عادات بسيطة للعناية بنفسك
-وحاولي المحافظة عليها اليوم.
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     علاقتي بربي
-========================= -->
-
-<section id="faith" class="page">
-
-<h2 class="section-title">
-🕌 علاقتي بربي
-</h2>
-
-<p class="section-subtitle">
-الإيمان والعبادة جزء مهم من حياة المسلم،
-والتقرب إلى الله يكون بخطوات مستمرة.
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>🤍 الصلاة</h3>
-
-<p>
-المحافظة على الصلاة والحرص على أدائها في وقتها
-من أهم العبادات التي تساعد المسلم على تنظيم يومه
-وتقوية صلته بالله.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📖 القرآن</h3>
-
-<p>
-يمكن تخصيص وقت بسيط يوميًا لقراءة القرآن
-أو تدبر آية، حتى لو كان الوقت قصيرًا.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🤲 الدعاء</h3>
-
-<p>
-يمكنك دعاء الله بما تحتاجينه من خير،
-والاستعانة به في دراستك وحياتك وأمورك اليومية.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌷 بر الوالدين</h3>
-
-<p>
-الكلمة الطيبة والمساعدة والاحترام
-من صور جميلة من صور بر الوالدين.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="tip-box">
-
-<h3>✨ تذكري</h3>
-
-<p>
-القرب من الله ليس مسابقة مع الآخرين؛
-هو علاقة تحتاج إلى صدق واستمرار ومحاولة.
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     الدراسة
-========================= -->
-
-<section id="study" class="page">
-
-<h2 class="section-title">
-📚 دراستي ودرجاتي
-</h2>
-
-<p class="section-subtitle">
-درجاتك مهمة، لكن النجاح الحقيقي يحتاج أيضًا
-إلى تنظيم وصبر وتوازن.
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>📝 خططي قبل المذاكرة</h3>
-
-<p>
-حددي المادة والموضوع والوقت الذي ستدرسين فيه،
-بدل أن تبدئي وأنتِ لا تعرفين من أين تبدأين.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>⏰ قسمي وقتك</h3>
-
-<p>
-قسمي وقتك بين الدراسة والراحة والنوم والعبادة
-والأنشطة التي تحبينها.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📵 أبعدي المشتتات</h3>
-
-<p>
-ضعي الهاتف بعيدًا أثناء المذاكرة عندما تحتاجين إلى تركيز،
-ثم خذي استراحة قصيرة.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌟 لا تخافي من الخطأ</h3>
-
-<p>
-الخطأ في سؤال أو اختبار لا يعني أنك غير قادرة.
-استخدمي الخطأ لمعرفة الشيء الذي تحتاجين إلى مراجعته.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="challenge">
-
-<h3>🎯 تحدي الدراسة</h3>
-
-<p>
-اختاري مادة واحدة اليوم، وحددي لها هدفًا صغيرًا وواضحًا.
-مثال: "سأحل 10 مسائل" بدل "سأذاكر الرياضيات".
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     النفس والمشاعر
-========================= -->
-
-<section id="mind" class="page">
-
-<h2 class="section-title">
-🧠 نفسي ومشاعري
-</h2>
-
-<p class="section-subtitle">
-التغيرات والمشاعر المختلفة قد تكون جزءًا طبيعيًا من مرحلة المراهقة.
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>🌷 افهمي مشاعرك</h3>
-
-<p>
-الحزن أو القلق أو الغضب قد يحدث أحيانًا.
-حاولي معرفة السبب والتعبير عن مشاعرك بطريقة آمنة.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🤍 لا تقارني نفسك</h3>
-
-<p>
-كل إنسانة لها شخصيتها وقدراتها وطريقها.
-المقارنة المستمرة قد تجعلك تنسين الأشياء الجميلة في نفسك.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>👩🏻‍👧 اطلبي المساعدة</h3>
-
-<p>
-إذا كان هناك شيء يزعجك أو يقلقك، تحدثي مع والدتك
-أو والدك أو شخص بالغ موثوق تثقين به.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌱 طوري نفسك بهدوء</h3>
-
-<p>
-اختاري عادة واحدة واعملي عليها تدريجيًا.
-لا تحتاجين
 </body>
 </html>
