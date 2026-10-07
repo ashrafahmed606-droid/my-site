@@ -1,707 +1,1101 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bunny Bloom | دليلي في مرحلة المراهقة</title>
+<title>Bunny Bloom | دليلي في مرحلة المراهقة</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Tahoma", "Arial", sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Tahoma","Arial",sans-serif;
+}
 
-    body {
-      background: linear-gradient(135deg, #fff5fb, #f7f0ff);
-      color: #4d3b4d;
-      min-height: 100vh;
-    }
+body{
+  background:linear-gradient(135deg,#fff5fb,#f6efff);
+  color:#4d3b4d;
+  min-height:100vh;
+}
 
-    header {
-      background: linear-gradient(135deg, #f7b6d9, #d9b8f5);
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(150, 100, 150, 0.15);
-    }
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#f6b5d7,#d8b8f4);
+  padding:25px 15px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(120,70,120,.15);
+}
 
-    .bunny {
-      font-size: 55px;
-      margin-bottom: 5px;
-    }
+.logo{
+  width:115px;
+  height:115px;
+  margin:auto;
+  display:block;
+}
 
-    header h1 {
-      color: white;
-      font-size: 34px;
-      text-shadow: 2px 2px 5px rgba(120, 70, 120, 0.2);
-    }
+header h1{
+  color:white;
+  font-size:35px;
+  margin-top:5px;
+  text-shadow:2px 2px 5px rgba(100,60,100,.2);
+}
 
-    header p {
-      color: white;
-      margin-top: 8px;
-      font-size: 16px;
-    }
+header p{
+  color:white;
+  margin-top:8px;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      background: white;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  padding:15px;
+  background:white;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
 
-    nav button {
-      border: none;
-      background: #fff0f8;
-      color: #80506f;
-      padding: 11px 17px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+nav button{
+  border:none;
+  background:#fff0f8;
+  color:#80506f;
+  padding:11px 16px;
+  border-radius:22px;
+  cursor:pointer;
+  font-size:14px;
+  transition:.3s;
+}
 
-    nav button:hover {
-      background: #e7c5f5;
-      transform: translateY(-2px);
-    }
+nav button:hover{
+  background:#e6c4f3;
+  transform:translateY(-2px);
+}
 
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 30px 18px;
-    }
+/* MAIN */
+main{
+  max-width:1050px;
+  margin:auto;
+  padding:30px 18px;
+}
 
-    .page {
-      display: none;
-      animation: fade 0.4s ease;
-    }
+.page{
+  display:none;
+  animation:fade .4s ease;
+}
 
-    .page.active {
-      display: block;
-    }
+.page.active{
+  display:block;
+}
 
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.hero{
+  background:white;
+  border-radius:30px;
+  padding:35px 25px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(130,80,130,.1);
+  margin-bottom:25px;
+}
 
-    .hero {
-      background: white;
-      border-radius: 30px;
-      padding: 40px 25px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(130, 80, 130, 0.1);
-      margin-bottom: 25px;
-    }
+.hero h2{
+  color:#b45c91;
+  font-size:28px;
+  margin-bottom:15px;
+}
 
-    .hero h2 {
-      color: #b45c91;
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
+.hero p{
+  line-height:2;
+  max-width:760px;
+  margin:auto;
+  color:#6c596b;
+}
 
-    .hero p {
-      line-height: 2;
-      max-width: 750px;
-      margin: auto;
-      color: #6c596b;
-    }
+.section-title{
+  text-align:center;
+  color:#9a5b88;
+  margin:25px 0;
+}
 
-    .section-title {
-      text-align: center;
-      color: #9a5b88;
-      margin: 25px 0;
-      font-size: 25px;
-    }
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
+.card{
+  background:white;
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 7px 20px rgba(130,80,130,.09);
+  border:1px solid #f3dcec;
+  transition:.3s;
+}
 
-    .card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 24px;
-      padding: 25px;
-      box-shadow: 0 7px 20px rgba(130, 80, 130, 0.09);
-      border: 1px solid #f3dcec;
-      transition: 0.3s;
-    }
+.card:hover{
+  transform:translateY(-4px);
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(130, 80, 130, 0.14);
-    }
+.card h3{
+  color:#9d5b87;
+  margin-bottom:10px;
+}
 
-    .card .icon {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+.card p{
+  line-height:1.9;
+}
 
-    .card h3 {
-      color: #9d5b87;
-      margin-bottom: 10px;
-    }
+.icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
 
-    .card p {
-      line-height: 1.9;
-      color: #655665;
-    }
+/* QUIZ */
+.quiz-container{
+  background:white;
+  padding:25px;
+  border-radius:28px;
+  box-shadow:0 8px 25px rgba(130,80,130,.1);
+}
 
-    .info-box {
-      background: linear-gradient(135deg, #fff0f8, #f4eaff);
-      border-right: 5px solid #d69ac0;
-      padding: 20px;
-      border-radius: 18px;
-      margin: 20px 0;
-      line-height: 2;
-    }
+.question{
+  background:#fff7fc;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:18px;
+  border:1px solid #f1dceb;
+}
 
-    .tips {
-      margin-top: 15px;
-    }
+.question h3{
+  color:#92577f;
+  margin-bottom:14px;
+  font-size:17px;
+}
 
-    .tips li {
-      margin: 10px 0;
-      line-height: 1.8;
-      list-style: none;
-      background: #fff8fc;
-      padding: 12px 15px;
-      border-radius: 14px;
-    }
+.option{
+  display:block;
+  background:white;
+  padding:11px;
+  margin:8px 0;
+  border-radius:13px;
+  cursor:pointer;
+  border:1px solid #ead7e6;
+  transition:.2s;
+}
 
-    .tips li::before {
-      content: "🌷 ";
-    }
+.option:hover{
+  background:#f9e8f4;
+}
 
-    .daily-box {
-      background: white;
-      border-radius: 25px;
-      padding: 25px;
-      margin-top: 25px;
-      text-align: center;
-      box-shadow: 0 6px 20px rgba(130, 80, 130, 0.08);
-    }
+.option input{
+  margin-left:8px;
+}
 
-    .daily-box button {
-      margin-top: 15px;
-      border: none;
-      background: #c786ad;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 15px;
-    }
+.quiz-btn{
+  display:block;
+  margin:25px auto 10px;
+  border:none;
+  background:linear-gradient(135deg,#c77eaa,#a879c4);
+  color:white;
+  padding:14px 30px;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(130,80,130,.2);
+}
 
-    #tip {
-      margin-top: 18px;
-      color: #8a5577;
-      font-weight: bold;
-      line-height: 1.8;
-    }
+.quiz-btn:hover{
+  transform:scale(1.03);
+}
 
-    .routine {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
+#result{
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  border-radius:23px;
+  background:linear-gradient(135deg,#fff0f8,#f2e8ff);
+  text-align:center;
+  line-height:2;
+}
 
-    .routine div {
-      background: #fff;
-      padding: 20px;
-      border-radius: 20px;
-      text-align: center;
-      border: 1px solid #f0dbea;
-    }
+.result-score{
+  font-size:32px;
+  font-weight:bold;
+  color:#a45686;
+  margin-bottom:8px;
+}
 
-    .routine strong {
-      display: block;
-      color: #a75c8b;
-      margin-bottom: 8px;
-    }
+.advice{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  margin-top:18px;
+  text-align:right;
+}
 
-    footer {
-      margin-top: 35px;
-      background: #efd8e9;
-      text-align: center;
-      padding: 20px;
-      color: #704f68;
-      line-height: 1.8;
-    }
+.training{
+  margin-top:20px;
+  text-align:right;
+}
 
-    footer strong {
-      color: #9d5784;
-    }
+.training-question{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  margin:10px 0;
+  border-right:4px solid #c989b0;
+}
 
-    @media (max-width: 700px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
+/* INFO */
+.info-box{
+  background:linear-gradient(135deg,#fff0f8,#f4eaff);
+  border-right:5px solid #d69ac0;
+  padding:20px;
+  border-radius:18px;
+  margin:20px 0;
+  line-height:2;
+}
 
-      .routine {
-        grid-template-columns: 1fr;
-      }
+.tips li{
+  list-style:none;
+  margin:10px 0;
+  line-height:1.8;
+  background:#fff8fc;
+  padding:12px;
+  border-radius:14px;
+}
 
-      header h1 {
-        font-size: 28px;
-      }
+.tips li::before{
+  content:"🌷 ";
+}
 
-      nav button {
-        font-size: 13px;
-        padding: 9px 13px;
-      }
-    }
-  </style>
+/* ROUTINE */
+.routine{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.routine div{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  border:1px solid #f0dbea;
+  line-height:1.8;
+}
+
+.routine strong{
+  display:block;
+  color:#a75c8b;
+  margin-bottom:8px;
+}
+
+/* FOOTER */
+footer{
+  margin-top:35px;
+  background:#efd8e9;
+  text-align:center;
+  padding:20px;
+  color:#704f68;
+  line-height:1.8;
+}
+
+footer strong{
+  color:#9d5784;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .routine{
+    grid-template-columns:1fr;
+  }
+
+  header h1{
+    font-size:29px;
+  }
+
+  .logo{
+    width:95px;
+    height:95px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="bunny">🐰🌷</div>
-    <h1>Bunny Bloom</h1>
-    <p>دليلي في مرحلة المراهقة 💗</p>
-  </header>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <button onclick="showPage('home')">🏠 الرئيسية</button>
-    <button onclick="showPage('hygiene')">🧼 العناية والنظافة</button>
-    <button onclick="showPage('faith')">🕌 علاقتي بربي</button>
-    <button onclick="showPage('study')">📚 دراستي</button>
-    <button onclick="showPage('mind')">🧠 نفسي ومشاعري</button>
-    <button onclick="showPage('routine')">🌸 روتيني</button>
-  </nav>
-
-  <main>
-
-    <!-- HOME -->
-    <section id="home" class="page active">
-
-      <div class="hero">
-        <h2>أهلًا بكِ في Bunny Bloom 🐰🌷</h2>
-
-        <p>
-          مرحلة المراهقة ليست مجرد مرحلة عمرية، بل فترة نكتشف فيها أنفسنا
-          ونطوّر عاداتنا ونبني شخصيتنا خطوة بخطوة.
-          صممت هذا الموقع ليكون دليلًا بسيطًا ولطيفًا يساعد الفتاة
-          على الاهتمام بنفسها ودراستها ومشاعرها وعلاقتها بربها.
-        </p>
-      </div>
-
-      <h2 class="section-title">ماذا ستجدين هنا؟ ✨</h2>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">🧼</div>
-          <h3>العناية والنظافة</h3>
-          <p>
-            نصائح بسيطة تساعدكِ على الاهتمام بالنظافة الشخصية
-            والعناية اليومية بنفسك.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🕌</div>
-          <h3>علاقتي بربي</h3>
-          <p>
-            أفكار تساعدكِ على المحافظة على العبادات
-            وتقوية علاقتكِ بالله بطريقة بسيطة.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">📚</div>
-          <h3>دراستي</h3>
-          <p>
-            طرق لتنظيم الوقت والمذاكرة والتعامل مع ضغط الدراسة
-            بطريقة أفضل.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧠</div>
-          <h3>نفسي ومشاعري</h3>
-          <p>
-            فهم المشاعر والتعامل معها والتعبير عنها بطريقة صحية
-            وطلب المساعدة عند الحاجة.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="daily-box">
-        <h3>🌷 رسالة اليوم</h3>
-        <p id="tip">
-          أنتِ لا تحتاجين أن تكوني مثالية، يكفي أن تتقدمي خطوة كل يوم.
-        </p>
-
-        <button onclick="newTip()">رسالة أخرى ✨</button>
-      </div>
-
-    </section>
-
-
-    <!-- HYGIENE -->
-    <section id="hygiene" class="page">
-
-      <div class="hero">
-        <h2>🧼 العناية والنظافة</h2>
-        <p>
-          العناية بالنفس ليست رفاهية، بل عادة تساعدنا على الشعور
-          بالراحة والثقة والاهتمام بصحتنا.
-        </p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">🧴</div>
-          <h3>النظافة اليومية</h3>
-
-          <ul class="tips">
-            <li>الاستحمام والمحافظة على نظافة الجسم.</li>
-            <li>غسل اليدين بانتظام.</li>
-            <li>العناية بالأسنان مرتين يوميًا.</li>
-            <li>ارتداء ملابس نظيفة ومريحة.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="icon">🪥</div>
-          <h3>العناية بالفم</h3>
-
-          <ul class="tips">
-            <li>تنظيف الأسنان بالفرشاة والمعجون.</li>
-            <li>الاهتمام بتنظيف اللسان.</li>
-            <li>زيارة طبيب الأسنان عند وجود مشكلة.</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="info-box">
-        💡 <strong>تذكري:</strong>
-        الاهتمام بالنظافة لا يعني المبالغة، بل المحافظة على عادات بسيطة
-        ومستقرة كل يوم.
-      </div>
-
-    </section>
-
-
-    <!-- FAITH -->
-    <section id="faith" class="page">
-
-      <div class="hero">
-        <h2>🕌 علاقتي بربي</h2>
-
-        <p>
-          في مرحلة المراهقة تتغير أشياء كثيرة في حياتنا،
-          ومن الجميل أن تكون علاقتنا بالله مصدرًا للطمأنينة والثبات.
-        </p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">🕊️</div>
-          <h3>الصلاة</h3>
-          <p>
-            المحافظة على الصلاة وتنظيم اليوم حولها يساعد على بناء
-            روتين متوازن ويمنح الإنسان وقتًا للهدوء والتأمل.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">📖</div>
-          <h3>القرآن</h3>
-          <p>
-            تخصيص وقت ولو قصيرًا لقراءة القرآن والتدبر فيه
-            يمكن أن يكون عادة جميلة في اليوم.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🤲</div>
-          <h3>الدعاء</h3>
-          <p>
-            يمكنكِ الدعاء لله بما تحتاجينه وما تتمنينه،
-            فالدعاء مساحة للرجاء والطمأنينة.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">💗</div>
-          <h3>النية الطيبة</h3>
-          <p>
-            الأعمال اليومية البسيطة يمكن أن تكون ذات قيمة عندما تكون
-            النية فيها صالحة.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="info-box">
-        🌷 <strong>فكرة صغيرة:</strong>
-        لا تنتظري أن يكون يومك مثاليًا حتى تقتربي من الله،
-        ابدئي بخطوة بسيطة واستمرّي عليها.
-      </div>
-
-    </section>
-
-
-    <!-- STUDY -->
-    <section id="study" class="page">
-
-      <div class="hero">
-        <h2>📚 دراستي</h2>
-
-        <p>
-          النجاح الدراسي لا يعتمد فقط على عدد ساعات المذاكرة،
-          بل على طريقة تنظيم الوقت وفهم الدروس والراحة بشكل متوازن.
-        </p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">⏰</div>
-          <h3>تنظيم الوقت</h3>
-
-          <ul class="tips">
-            <li>حددي أهم المهام أولًا.</li>
-            <li>قسّمي المذاكرة إلى فترات قصيرة.</li>
-            <li>اتركي وقتًا للراحة.</li>
-            <li>لا تؤجلي كل شيء إلى آخر لحظة.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="icon">📝</div>
-          <h3>المذاكرة بذكاء</h3>
-
-          <ul class="tips">
-            <li>حاولي فهم الدرس قبل حفظه.</li>
-            <li>استخدمي الخرائط الذهنية والجداول.</li>
-            <li>اختبري نفسك بعد المذاكرة.</li>
-            <li>راجعي الأخطاء بدل تجاهلها.</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="info-box">
-        ⭐ <strong>قاعدة مهمة:</strong>
-        إذا لم تفهمي شيئًا، السؤال وطلب المساعدة ليسا دليلًا على الضعف،
-        بل جزء من التعلم.
-      </div>
-
-    </section>
-
-
-    <!-- MIND -->
-    <section id="mind" class="page">
-
-      <div class="hero">
-        <h2>🧠 نفسي ومشاعري</h2>
-
-        <p>
-          من الطبيعي أن تتغير المشاعر خلال مرحلة المراهقة.
-          المهم أن نتعلم كيف نفهم مشاعرنا ونتعامل معها بطريقة آمنة وصحية.
-        </p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">🌧️</div>
-          <h3>عندما أشعر بالحزن</h3>
-          <p>
-            اسمحي لنفسك بالشعور، وتحدثي مع شخص تثقين به،
-            وحاولي القيام بشيء بسيط يساعدك على الاسترخاء.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">😤</div>
-          <h3>عندما أغضب</h3>
-          <p>
-            خذي لحظة قبل الرد، ابتعدي عن الموقف إن احتجتِ،
-            وحاولي التعبير عن سبب غضبك بهدوء.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">😰</div>
-          <h3>عندما أشعر بالضغط</h3>
-          <p>
-            رتبي ما عليكِ خطوة بخطوة، وخذي فترات راحة،
-            ولا تترددي في طلب المساعدة من شخص بالغ تثقين به.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🌷</div>
-          <h3>الثقة بالنفس</h3>
-          <p>
-            لا تقارني نفسك بالآخرين باستمرار.
-            لكل شخص نقاط قوة وأشياء يتعلمها مع الوقت.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="info-box">
-        💗 <strong>تذكري:</strong>
-        طلب المساعدة عندما تحتاجينها تصرف شجاع، ويمكنكِ التحدث
-        مع والديكِ أو معلمة تثقين بها أو شخص بالغ موثوق.
-      </div>
-
-    </section>
-
-
-    <!-- ROUTINE -->
-    <section id="routine" class="page">
-
-      <div class="hero">
-        <h2>🌸 روتيني المتوازن</h2>
-
-        <p>
-          التوازن لا يعني أن يكون كل يوم مثاليًا،
-          بل أن نعطي كل جانب من حياتنا حقه قدر الإمكان.
-        </p>
-      </div>
-
-      <div class="routine">
-
-        <div>
-          <div class="icon">🌅</div>
-          <strong>الصباح</strong>
-          الاستعداد لليوم، النظافة الشخصية، الفطور، وترتيب الأولويات.
-        </div>
-
-        <div>
-          <div class="icon">🏫</div>
-          <strong>الدراسة</strong>
-          التركيز في المدرسة وتسجيل الأشياء التي تحتاج إلى مراجعة.
-        </div>
-
-        <div>
-          <div class="icon">📚</div>
-          <strong>بعد المدرسة</strong>
-          الراحة قليلًا ثم إنجاز الواجبات والمذاكرة.
-        </div>
-
-        <div>
-          <div class="icon">🕌</div>
-          <strong>العبادة</strong>
-          المحافظة على الصلاة ووقت للقرآن والدعاء.
-        </div>
-
-        <div>
-          <div class="icon">💗</div>
-          <strong>نفسي</strong>
-          وقت للهوايات والعائلة والراحة والتعبير عن المشاعر.
-        </div>
-
-        <div>
-          <div class="icon">🌙</div>
-          <strong>المساء</strong>
-          تجهيز أغراض الغد والابتعاد عن السهر قدر الإمكان.
-        </div>
-
-      </div>
-
-      <div class="daily-box">
-        <h3>🐰 تذكير Bunny Bloom</h3>
-
-        <p id="tip">
-          خطوة صغيرة كل يوم تصنع فرقًا كبيرًا مع الوقت.
-        </p>
-
-        <button onclick="newTip()">أعطني تذكيرًا 💕</button>
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer>
-    <strong>🐰 Bunny Bloom</strong>
-    <br>
-    دليلي في مرحلة المراهقة 🌷
-    <br>
-    تصميم الطالبة: <strong>لَدُن أشرف</strong>
-    <br>
-    أول ثانوي 2
-  </footer>
-
-
-  <script>
-
-    function showPage(pageId) {
-
-      const pages = document.querySelectorAll(".page");
-
-      pages.forEach(function(page) {
-        page.classList.remove("active");
-      });
-
-      document.getElementById(pageId).classList.add("active");
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+<!-- HEADER -->
+<header>
+
+<!-- أرنب أنمي كيوت يرمش -->
+<svg class="logo" viewBox="0 0 200 200">
+
+<!-- الأذنان -->
+<ellipse cx="72" cy="42" rx="25" ry="48" fill="#fff" stroke="#b9789e" stroke-width="5"/>
+<ellipse cx="128" cy="42" rx="25" ry="48" fill="#fff" stroke="#b9789e" stroke-width="5"/>
+
+<!-- داخل الأذن -->
+<ellipse cx="72" cy="43" rx="10" ry="32" fill="#f7c4dc"/>
+<ellipse cx="128" cy="43" rx="10" ry="32" fill="#f7c4dc"/>
+
+<!-- الرأس -->
+<circle cx="100" cy="105" r="62" fill="#fff" stroke="#b9789e" stroke-width="5"/>
+
+<!-- خدود -->
+<ellipse cx="59" cy="119" rx="14" ry="8" fill="#f7b5d0"/>
+<ellipse cx="141" cy="119" rx="14" ry="8" fill="#f7b5d0"/>
+
+<!-- العين الأولى -->
+<circle cx="76" cy="98" r="8" fill="#49384b"/>
+
+<!-- العين الثانية -->
+<g id="blinkEye">
+  <circle cx="124" cy="98" r="8" fill="#49384b"/>
+</g>
+
+<!-- الأنف -->
+<path d="M94 111 Q100 106 106 111 Q100 118 94 111" fill="#d889ad"/>
+
+<!-- الفم -->
+<path d="M100 116 Q94 127 87 122" fill="none" stroke="#8d5576" stroke-width="3"/>
+<path d="M100 116 Q106 127 113 122" fill="none" stroke="#8d5576" stroke-width="3"/>
+
+<!-- وردة -->
+<circle cx="155" cy="61" r="8" fill="#f3a7c7"/>
+<circle cx="167" cy="61" r="8" fill="#f3a7c7"/>
+<circle cx="161" cy="52" r="8" fill="#f3a7c7"/>
+<circle cx="161" cy="70" r="8" fill="#f3a7c7"/>
+<circle cx="161" cy="61" r="5" fill="#f4c86b"/>
+
+</svg>
+
+<h1>Bunny Bloom</h1>
+<p>دليلي اللطيف في مرحلة المراهقة 🌷</p>
+
+</header>
+
+
+<!-- NAV -->
+<nav>
+<button onclick="showPage('home')">🏠 الرئيسية</button>
+<button onclick="showPage('quiz')">📝 اختبار التوازن</button>
+<button onclick="showPage('hygiene')">🧼 العناية والنظافة</button>
+<button onclick="showPage('faith')">🕌 علاقتي بربي</button>
+<button onclick="showPage('study')">📚 دراستي</button>
+<button onclick="showPage('mind')">🧠 نفسي ومشاعري</button>
+<button onclick="showPage('routine')">🌸 روتيني</button>
+</nav>
+
+
+<main>
+
+<!-- HOME -->
+<section id="home" class="page active">
+
+<div class="hero">
+<h2>أهلًا بكِ في Bunny Bloom 🐰</h2>
+
+<p>
+مرحلة المراهقة مرحلة مليئة بالتغيرات والاكتشافات.
+صممت هذا الموقع ليكون دليلًا بسيطًا ولطيفًا يساعد الفتاة
+على الاهتمام بنفسها ودراستها ومشاعرها وعلاقتها بربها،
+مع اختبار تفاعلي يساعدها على معرفة مدى توازن عاداتها.
+</p>
+</div>
+
+<h2 class="section-title">ماذا ستجدين هنا؟ ✨</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🧼</div>
+<h3>العناية والنظافة</h3>
+<p>نصائح بسيطة للاهتمام بالنظافة والعناية اليومية بالنفس.</p>
+</div>
+
+<div class="card">
+<div class="icon">🕌</div>
+<h3>علاقتي بربي</h3>
+<p>أفكار تساعد على المحافظة على العبادات وتقوية الصلة بالله.</p>
+</div>
+
+<div class="card">
+<div class="icon">📚</div>
+<h3>دراستي</h3>
+<p>طرق لتنظيم الوقت والمذاكرة والتعامل مع ضغط الدراسة.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3>نفسي ومشاعري</h3>
+<p>معلومات عن فهم المشاعر والتعامل معها وطلب المساعدة.</p>
+</div>
+
+</div>
+
+<div class="info-box">
+💗 <strong>فكرة الموقع:</strong>
+أن يكون Bunny Bloom مساحة صغيرة تجمع أهم الجوانب التي تحتاجها
+الفتاة في مرحلة المراهقة بطريقة سهلة وتفاعلية.
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+<section id="quiz" class="page">
+
+<div class="hero">
+<h2>📝 اختبار التوازن</h2>
+
+<p>
+أجيبي عن الأسئلة بصدق، وفي النهاية ستظهر نتيجتك من 10
+مع عبارة تناسب نتيجتك. 🌷
+</p>
+</div>
+
+
+<div class="quiz-container">
+
+<!-- Q1 -->
+<div class="question">
+<h3>1. هل تحافظين على نظافتك الشخصية بشكل منتظم؟</h3>
+
+<label class="option">
+<input type="radio" name="q1" value="1">
+نعم، غالبًا
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="0">
+أحيانًا أو لا
+</label>
+</div>
+
+
+<!-- Q2 -->
+<div class="question">
+<h3>2. هل تحاولين المحافظة على صلاتك في أوقاتها؟</h3>
+
+<label class="option">
+<input type="radio" name="q2" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="0">
+أحتاج إلى تحسين ذلك
+</label>
+</div>
+
+
+<!-- Q3 -->
+<div class="question">
+<h3>3. هل تنظمين وقتك بين الدراسة والراحة؟</h3>
+
+<label class="option">
+<input type="radio" name="q3" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="0">
+ليس دائمًا
+</label>
+</div>
+
+
+<!-- Q4 -->
+<div class="question">
+<h3>4. هل تحاولين الحصول على نوم وراحة كافيين؟</h3>
+
+<label class="option">
+<input type="radio" name="q4" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="0">
+غالبًا لا
+</label>
+</div>
+
+
+<!-- Q5 -->
+<div class="question">
+<h3>5. عندما تشعرين بالضغط، هل تتحدثين مع شخص تثقين به؟</h3>
+
+<label class="option">
+<input type="radio" name="q5" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="0">
+أفضل الاحتفاظ بكل شيء لنفسي
+</label>
+</div>
+
+
+<!-- Q6 -->
+<div class="question">
+<h3>6. هل تهتمين بشرب الماء والعادات الصحية اليومية؟</h3>
+
+<label class="option">
+<input type="radio" name="q6" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="0">
+أحيانًا أنسى
+</label>
+</div>
+
+
+<!-- Q7 -->
+<div class="question">
+<h3>7. عندما تخطئين، هل تحاولين التعلم من الخطأ بدل الاستسلام؟</h3>
+
+<label class="option">
+<input type="radio" name="q7" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="0">
+أشعر بالإحباط بسرعة
+</label>
+</div>
+
+
+<!-- Q8 -->
+<div class="question">
+<h3>8. هل تخصصين وقتًا لهواياتك والأشياء التي تحبينها؟</h3>
+
+<label class="option">
+<input type="radio" name="q8" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="0">
+نادراً
+</label>
+</div>
+
+
+<!-- Q9 -->
+<div class="question">
+<h3>9. إذا لم تفهمي درسًا، هل تطلبين المساعدة؟</h3>
+
+<label class="option">
+<input type="radio" name="q9" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="0">
+أحاول وحدي دائمًا
+</label>
+</div>
+
+
+<!-- Q10 -->
+<div class="question">
+<h3>10. هل تحاولين تطوير نفسك وتكوين عادات أفضل؟</h3>
+
+<label class="option">
+<input type="radio" name="q10" value="1">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="0">
+أحتاج إلى البدء
+</label>
+</div>
+
+
+<button class="quiz-btn" onclick="calculateScore()">
+✨ أظهري نتيجتي
+</button>
+
+
+<div id="result"></div>
+
+</div>
+</section>
+
+
+<!-- HYGIENE -->
+<section id="hygiene" class="page">
+
+<div class="hero">
+<h2>🧼 العناية والنظافة</h2>
+<p>
+العناية بالنفس تبدأ بعادات بسيطة تتكرر كل يوم.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🧴</div>
+<h3>النظافة اليومية</h3>
+
+<ul class="tips">
+<li>الاستحمام والمحافظة على نظافة الجسم.</li>
+<li>غسل اليدين بانتظام.</li>
+<li>العناية بالأسنان.</li>
+<li>ارتداء ملابس نظيفة.</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="icon">🪥</div>
+<h3>العناية بالفم</h3>
+
+<ul class="tips">
+<li>تنظيف الأسنان بالفرشاة والمعجون.</li>
+<li>الاهتمام بنظافة اللسان.</li>
+<li>زيارة طبيب الأسنان عند الحاجة.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="info-box">
+🌷 الاهتمام بالنظافة لا يعني المبالغة، بل بناء عادات بسيطة ومستقرة.
+</div>
+
+</section>
+
+
+<!-- FAITH -->
+<section id="faith" class="page">
+
+<div class="hero">
+<h2>🕌 علاقتي بربي</h2>
+
+<p>
+من الجميل أن تكون علاقتنا بالله مصدرًا للطمأنينة والثبات.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🕊️</div>
+<h3>الصلاة</h3>
+<p>
+المحافظة على الصلاة تساعد على تنظيم اليوم وتمنح الإنسان وقتًا للسكينة.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📖</div>
+<h3>القرآن</h3>
+<p>
+تخصيص وقت لقراءة القرآن والتدبر فيه عادة جميلة يمكن الاستمرار عليها.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🤲</div>
+<h3>الدعاء</h3>
+<p>
+الدعاء مساحة للرجاء وطلب العون من الله في مختلف أمور الحياة.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💗</div>
+<h3>النية الطيبة</h3>
+<p>
+الأعمال اليومية البسيطة تصبح ذات قيمة عندما تكون النية فيها صالحة.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STUDY -->
+<section id="study" class="page">
+
+<div class="hero">
+<h2>📚 دراستي</h2>
+
+<p>
+النجاح لا يعتمد على ساعات المذاكرة فقط، بل على تنظيم الوقت
+وفهم الدروس والراحة.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">⏰</div>
+<h3>تنظيم الوقت</h3>
+
+<ul class="tips">
+<li>حددي المهام المهمة أولًا.</li>
+<li>قسمي المذاكرة إلى فترات.</li>
+<li>خذي فترات راحة.</li>
+<li>لا تؤجلي كل شيء لآخر لحظة.</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="icon">📝</div>
+<h3>المذاكرة بذكاء</h3>
+
+<ul class="tips">
+<li>افهمي الدرس قبل حفظه.</li>
+<li>استخدمي الخرائط الذهنية.</li>
+<li>اختبري نفسك بعد المذاكرة.</li>
+<li>راجعي أخطاءك.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="info-box">
+⭐ طلب المساعدة عندما لا تفهمين شيئًا ليس ضعفًا، بل جزء من التعلم.
+</div>
+
+</section>
+
+
+<!-- MIND -->
+<section id="mind" class="page">
+
+<div class="hero">
+<h2>🧠 نفسي ومشاعري</h2>
+
+<p>
+من الطبيعي أن تتغير المشاعر خلال مرحلة المراهقة،
+والمهم أن نتعلم كيف نفهمها ونتعامل معها بطريقة صحية.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🌧️</div>
+<h3>عندما أشعر بالحزن</h3>
+<p>
+تحدثي مع شخص تثقين به وحاولي القيام بشيء بسيط يساعدك على الهدوء.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">😤</div>
+<h3>عندما أغضب</h3>
+<p>
+خذي لحظة قبل الرد وحاولي التعبير عن سبب غضبك بهدوء.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">😰</div>
+<h3>عندما أشعر بالضغط</h3>
+<p>
+رتبي الأمور خطوة بخطوة ولا تترددي في طلب المساعدة.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌷</div>
+<h3>الثقة بالنفس</h3>
+<p>
+لا تقارني نفسك بالآخرين باستمرار؛ لكل شخص طريقه ونقاط قوته.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ROUTINE -->
+<section id="routine" class="page">
+
+<div class="hero">
+<h2>🌸 روتيني المتوازن</h2>
+
+<p>
+التوازن لا يعني أن يكون كل يوم مثاليًا،
+بل أن نعطي كل جانب من حياتنا حقه قدر الإمكان.
+</p>
+</div>
+
+<div class="routine">
+
+<div>
+<div class="icon">🌅</div>
+<strong>الصباح</strong>
+الاستعداد لليوم وترتيب الأولويات.
+</div>
+
+<div>
+<div class="icon">🏫</div>
+<strong>الدراسة</strong>
+التركيز في المدرسة وتسجيل ما يحتاج للمراجعة.
+</div>
+
+<div>
+<div class="icon">📚</div>
+<strong>بعد المدرسة</strong>
+الراحة قليلًا ثم إنجاز الواجبات.
+</div>
+
+<div>
+<div class="icon">🕌</div>
+<strong>العبادة</strong>
+المحافظة على الصلاة ووقت للقرآن والدعاء.
+</div>
+
+<div>
+<div class="icon">💗</div>
+<strong>نفسي</strong>
+وقت للهوايات والعائلة والراحة.
+</div>
+
+<div>
+<div class="icon">🌙</div>
+<strong>المساء</strong>
+تجهيز أغراض الغد والاستعداد للنوم.
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+<strong>Bunny Bloom</strong>
+<br>
+دليلي في مرحلة المراهقة 🌷
+<br>
+تصميم الطالبة: <strong>لَدُن أشرف</strong>
+<br>
+أول ثانوي 2
+</footer>
+
+
+<script>
+
+function showPage(pageId){
+
+  const pages=document.querySelectorAll(".page");
+
+  pages.forEach(function(page){
+    page.classList.remove("active");
+  });
+
+  document.getElementById(pageId).classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* الاختبار */
+
+function calculateScore(){
+
+  let score=0;
+
+  for(let i=1;i<=10;i++){
+
+    const answer=document.querySelector(
+      'input[name="q'+i+'"]:checked'
+    );
+
+    if(answer && answer.value==="1"){
+      score++;
     }
+  }
 
 
-    const tips = [
-      "أنتِ لا تحتاجين أن تكوني مثالية، يكفي أن تتقدمي خطوة كل يوم. 🌷",
+  const result=document.getElementById("result");
 
-      "اهتمي بنفسك كما تهتمين بمن تحبين. أنتِ تستحقين العناية أيضًا. 💗",
-
-      "إذا أخطأتِ في شيء، لا تجعلي الخطأ يحدد قيمتك. تعلّمي منه وابدئي من جديد. 🐰",
-
-      "طلب المساعدة عندما تحتاجينها ليس ضعفًا، بل تصرف ناضج وشجاع. 🌸",
-
-      "الموازنة بين الدراسة والراحة والعبادة والعائلة تساعدك على الاستمرار. ✨",
-
-      "لا تقارني بدايتك بمنتصف رحلة شخص آخر. لكل شخص طريقه الخاص. 🌷",
-
-      "اهتمي بعاداتك الصغيرة؛ لأنها مع الوقت تصبح جزءًا من شخصيتك. 💕",
-
-      "كوني لطيفة مع نفسك أثناء التعلم والنمو. أنتِ ما زلتِ تكتشفين نفسك. 🦋"
-    ];
+  let message="";
 
 
-    function newTip() {
+  if(score===10){
 
-      const randomIndex = Math.floor(Math.random() * tips.length);
+    message=`
+    <div class="result-score">10 / 10 🌟</div>
+    <h3>واو! نتيجة رائعة جدًا! 🐰💗</h3>
+    <p>
+    لديكِ وعي جميل بالتوازن والعناية بنفسك.
+    استمري في عاداتك الجميلة وكوني فخورة بتقدمك!
+    </p>
+    `;
 
-      document.getElementById("tip").textContent = tips[randomIndex];
+  }else if(score===9){
 
-    }
+    message=`
+    <div class="result-score">9 / 10 ✨</div>
+    <h3>ممتاز جدًا! 🌷</h3>
+    <p>
+    أنتِ قريبة جدًا من التوازن المثالي،
+    استمري في تطوير نفسك خطوة بخطوة.
+    </p>
+    `;
 
-  </script>
+  }else if(score===8){
+
+    message=`
+    <div class="result-score">8 / 10 💕</div>
+    <h3>أداؤك جميل! 🦋</h3>
+    <p>
+    لديكِ أساس رائع، ومع بعض العادات الصغيرة
+    يمكنك الوصول إلى نتيجة أقوى.
+    </p>
+    `;
+
+  }else if(score===7){
+
+    message=`
+    <div class="result-score">7 / 10 🌸</div>
+    <h3>بداية قوية! 💗</h3>
+    <p>
+    أنتِ على الطريق الصحيح، وحافظي على الأشياء
+    الجميلة التي تفعلينها وواصلي التحسن.
+    </p>
+    `;
+
+  }else{
+
+    message=`
+    <div class="result-score">${score} / 10 🌷</div>
+
+    <h3>لا بأس، كل شيء يبدأ بخطوة صغيرة 💗</h3>
+
+    <p>
+    نتيجتك تعني أن هناك بعض الجوانب التي يمكنك تحسينها،
+    وهذا ليس فشلًا أبدًا؛ الهدف من الاختبار هو مساعدتك
+    على اكتشاف الأشياء التي تحتاج إلى اهتمام أكثر.
+    </p>
+
+    <div class="advice">
+
+      <h3>🌷 نصيحتك</h3>
+
+      <p>
+      اختاري عادة واحدة فقط لتحسينها هذا الأسبوع،
+      وركزي عليها بهدوء بدل محاولة تغيير كل شيء مرة واحدة.
+      التقدم البسيط المستمر أفضل من البداية القوية التي لا تستمر.
+      </p>
+
+    </div>
+
+
+    <div class="training">
+
+      <h3>🧠 جربي هذه الأسئلة الخمسة</h3>
+
+      <p>
+      هذه الأسئلة مختلفة عن الاختبار الأساسي،
+      ويمكنك استخدامها للتفكير في عاداتك وتطوير نفسك:
+      </p>
+
+
+      <div class="training-question">
+      <strong>1.</strong>
+      ما العادة الصغيرة التي تتمنين أن تلتزمي بها خلال هذا الأسبوع؟
+      </div>
+
+      <div class="training-question">
+      <strong>2.</strong>
+      ماذا يمكنك أن تفعلي عندما تشعرين أن مهامك كثيرة ومتراكمة؟
+      </div>
+
+      <div class="training-question">
+      <strong>3.</strong>
+      ما الشيء الذي يجعلك تشعرين بالراحة بعد يوم دراسي طويل؟
+      </div>
+
+      <div class="training-question">
+      <strong>4.</strong>
+      من الشخص الموثوق الذي يمكنك اللجوء إليه عندما تحتاجين للمساعدة؟
+      </div>
+
+      <div class="training-question">
+      <strong>5.</strong>
+      ما مهارة جديدة تتمنين تطويرها في نفسك خلال الفترة القادمة؟
+      </div>
+
+    </div>
+    `;
+  }
+
+
+  result.innerHTML=message;
+  result.style.display="block";
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* حركة رمش الأرنب */
+
+setInterval(function(){
+
+  const eye=document.getElementById("blinkEye");
+
+  eye.innerHTML=`
+  <path
+    d="M116 98 Q124 105 132 98"
+    fill="none"
+    stroke="#49384b"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  `;
+
+  setTimeout(function(){
+
+    eye.innerHTML=`
+    <circle cx="124" cy="98" r="8" fill="#49384b"/>
+    `;
+
+  },180);
+
+},3500);
+
+</script>
 
 </body>
 </html>
